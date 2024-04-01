@@ -29,7 +29,7 @@ a {
 }
 
 .light {
-  --bg: white;
+  --bg: #dddddd;
   --textColor: black;
   --softBg: #f0f0f0;
   --softTextColor: #626262;
