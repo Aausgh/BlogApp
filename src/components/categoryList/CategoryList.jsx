@@ -35,26 +35,43 @@ const categories = [
     },
 ]
 
-const CategoryList = () => {
+const getCat = async () => {
+    const res = await fetch("http://localhost:3000/api/categories", {
+        cache: "no-store"
+    })
+
+    if (!res.ok) {
+        throw new Error("Failed")
+    }
+
+    return res.json()
+}
+
+const CategoryList = async () => {
+
+    const data = await getCat()
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Popular Categories</h1>
 
             <div className={styles.categories}>
-                {categories.map((cat) => (
+                {data?.map((cat) => (
                     <Link
-                        key={cat.name}
-                        href={`/blog?cat=${cat.link}`}
-                        className={`${styles.category} ${styles.style}`}
+                        href={`/category-page?cat=${cat.slug}`}
+                        className={`${styles.category} ${styles[cat.slug]}`}
+                        key={cat._id}
                     >
-                        <Image
-                            src={cat.image}
-                            alt=''
-                            width={40}
-                            height={40}
-                            className={styles.image}
-                        />
-                        {cat.name}
+                        {cat.img && (
+                            <Image
+                                src={cat.img}
+                                alt=""
+                                width={32}
+                                height={32}
+                                className={styles.image}
+                            />
+                        )}
+                        {cat.title}
                     </Link>
                 ))}
             </div>

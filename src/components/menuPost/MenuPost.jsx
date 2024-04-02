@@ -7,7 +7,7 @@ const MenuPost = ({ withImage }) => {
         <Link href={'/'} className={styles.item}>
             {withImage && (
                 <div className={styles.imageContainer}>
-                    <Image src='nextjs.svg' alt='' fill className={styles.image} />
+                    <Image src='react.svg' alt='' fill className={styles.image} />
                 </div>
             )}
 
