@@ -2,9 +2,6 @@ import styles from './categoryList.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-import { FaReact, FaNodeJs } from "react-icons/fa";
-import { TbBrandNextjs } from "react-icons/tb";
-
 const categories = [
     {
         name: 'React JS',

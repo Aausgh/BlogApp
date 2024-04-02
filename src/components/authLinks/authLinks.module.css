@@ -3,18 +3,7 @@
 }
 
 .burger {
-  width: 20px;
-  height: 16px;
   display: none;
-  flex-direction: column;
-  justify-content: space-between;
-  cursor: pointer;
-}
-
-.line {
-  width: 100%;
-  height: 2px;
-  background-color: var(--textColor);
 }
 
 .responsiveMenu {
@@ -24,7 +13,7 @@
   background-color: var(--bg);
   height: calc(100vh - 100px);
   width: 100%;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
@@ -32,11 +21,27 @@
   font-size: 36px;
 }
 
-@media screen and (max-width: 640px) {
+.button {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.addButton {
+  background-color: blueviolet;
+}
+
+.sButton {
+  background-color: red;
+}
+
+@media screen and (max-width: 768px) {
   .burger {
     display: flex;
   }
   .link {
     display: none;
+  }
+  .responsiveMenu {
+    display: flex;
   }
 }
