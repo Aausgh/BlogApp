@@ -9,6 +9,11 @@
   padding: 10px 20px;
   margin-left: 50px;
   width: max-content;
+  text-transform: capitalize;
+  border-radius: 10px;
+  background-color: var(--softBg);
+  border: none;
+  color: var(--textColor);
 }
 
 .editor {
@@ -24,7 +29,7 @@
   height: 36px;
   border-radius: 50%;
   background-color: transparent;
-  border: 2px solid var(--textColor);
+  border: 1px solid var(--textColor);
   display: flex;
   align-items: center;
   justify-content: center;

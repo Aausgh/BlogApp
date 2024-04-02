@@ -16,7 +16,6 @@ const Card = ({ key, item }) => {
                 </div>
             )}
 
-
             <div className={styles.textContainer}>
                 <div className={styles.detail}>
                     <span className={styles.date}>
@@ -34,9 +33,10 @@ const Card = ({ key, item }) => {
                     </h1>
                 </Link>
 
-                <p className={styles.desc}>
-                    {item.desc.slice(0, 200)}...
-                </p>
+                <div
+                    className={styles.desc}
+                    dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+                />
 
                 <Link href={`/posts/${item.slug}`} className={styles.link}>Read More...</Link>
             </div>
