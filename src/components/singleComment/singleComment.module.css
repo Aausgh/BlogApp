@@ -1,12 +1,13 @@
 .comment {
-  margin-bottom: 50px;
+  margin-bottom: 40px;
+  /* border-bottom: 1px solid var(--softTextColor);
+  padding-bottom: 20px; */
 }
 
 .user {
   display: flex;
   align-items: center;
   gap: 20px;
-  margin-bottom: 20px;
 }
 
 .image {
@@ -16,20 +17,21 @@
 
 .userInfo {
   display: flex;
-  flex-direction: column;
+  align-items: center;
   gap: 5px;
-  color: var(--softTextColor);
 }
 
 .username {
-  font-weight: 500;
+  font-weight: 600;
+  font-size: 18px;
 }
 
 .date {
   font-size: 14px;
+  color: var(--softTextColor);
 }
 
 .desc {
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 300;
 }
