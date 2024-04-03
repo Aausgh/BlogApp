@@ -31,8 +31,28 @@
   width: max-content;
 }
 
-.category.react {
-  background-color: #ff7857;
+.category.reactjs {
+  background-color: #5e63f020;
+}
+
+.category.nextjs {
+  background-color: #00000060;
+}
+
+.category.javascript {
+  background-color: #ffe10020;
+}
+
+.category.nodejs {
+  background-color: #83cd2920;
+}
+
+.category.typescript {
+  background-color: #02b7ff20;
+}
+
+.category.css {
+  background-color: #02b7ff20;
 }
 
 .postTitle {

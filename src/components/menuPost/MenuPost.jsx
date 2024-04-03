@@ -7,12 +7,17 @@ const MenuPost = ({ withImage }) => {
         <Link href={'/'} className={styles.item}>
             {withImage && (
                 <div className={styles.imageContainer}>
-                    <Image src='react.svg' alt='' fill className={styles.image} />
+                    <Image
+                        src='/react.svg'
+                        alt=''
+                        fill
+                        className={styles.image}
+                    />
                 </div>
             )}
 
             <div className={styles.textContainer}>
-                <span className={`${styles.category} ${styles.react}`}>
+                <span className={`${styles.category} ${styles.reactjs}`}>
                     React JS
                 </span>
 

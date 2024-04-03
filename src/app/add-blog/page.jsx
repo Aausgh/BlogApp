@@ -37,6 +37,25 @@ const AddBlog = () => {
     const [title, setTitle] = useState("")
     const [catSlug, setCatSlug] = useState("");
 
+    const [category, setCategory] = useState({});
+
+    const getCategory = async () => {
+        try {
+            const res = await fetch("http://localhost:3000/api/categories");
+            if (!res.ok) {
+                throw new Error('Failed to fetch categories');
+            }
+            const data = await res.json();
+            setCategory(data);
+        } catch (error) {
+            console.error(error);
+        }
+    }
+
+    useEffect(() => {
+        getCategory();
+    }, []);
+
     const { status } = useSession()
     const router = useRouter()
 
@@ -114,13 +133,9 @@ const AddBlog = () => {
             />
 
             <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
-                <option value="reactjs">reactjs</option>
-                <option value="nextjs">nextjs</option>
-                <option value="nodejs">nodejs</option>
-                <option value="javascript">javascript</option>
-                <option value="typescript">typescript</option>
-                <option value="css">css</option>
-
+                {category.map((c) =>
+                    <option key={c.id} value={c.slug}>{c.title}</option>
+                )}
             </select>
 
             <div className={styles.editor}>

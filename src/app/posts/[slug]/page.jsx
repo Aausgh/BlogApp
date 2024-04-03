@@ -36,7 +36,13 @@ const SinglePage = async ({ params }) => {
                     <div className={styles.user}>
                         {data?.user?.image && (
                             <div className={styles.userImageContainer}>
-                                <Image src={data.user.image} alt='' fill className={styles.avatar} />
+                                <Image
+                                    src={data.user.image}
+                                    alt=''
+                                    fill
+                                    className={styles.avatar}
+                                    sizes="(max-width: 600px) 100vw, (max-width: 1024px) 50vw, 300px"
+                                />
                             </div>
                         )}
 

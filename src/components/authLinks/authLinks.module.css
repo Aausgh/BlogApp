@@ -22,16 +22,16 @@
 }
 
 .button {
-  padding: 10px;
+  padding: 5px 10px;
   border-radius: 10px;
 }
 
 .addButton {
-  background-color: blueviolet;
+  background-color: rgba(175, 113, 233, 0.5);
 }
 
 .sButton {
-  background-color: crimson;
+  background-color: rgba(220, 20, 60, 0.5);
 }
 
 @media screen and (max-width: 768px) {

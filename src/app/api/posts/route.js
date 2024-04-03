@@ -25,7 +25,7 @@ export const GET = async (req) => {
         ]);
         return new NextResponse(JSON.stringify({ posts, count }, { status: 200 }));
     } catch (err) {
-        console.log(err);
+        console.error("Error in GET request:", err);
         return new NextResponse(
             JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
         );
