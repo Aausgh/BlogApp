@@ -5,13 +5,14 @@ import Footer from "@/components/footer/Footer";
 import { ThemeContextProvider } from "@/context/ThemeContext";
 import ThemeProvider from "@/providers/ThemeProvider";
 import AuthProvider from "@/providers/AuthProvider";
+import { Provider as ChakraProvider } from "@/providers/ChakraProvider";
 
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-    title: "Blogify",
-    description: "Blog with Next.js and Tailwind CSS",
+    title: "GadgetGlobe",
+    description: "Explore the World of Gadgets with GadgetGlobe - Where Innovation Shines Bright!",
 };
 
 export default function RootLayout({ children }) {
@@ -19,17 +20,19 @@ export default function RootLayout({ children }) {
         <html lang="en">
             <body className={inter.className}>
                 <AuthProvider>
-                    <ThemeContextProvider>
-                        <ThemeProvider>
-                            <div className="container">
-                                <div className="wrapper">
-                                    <Navbar />
-                                    {children}
-                                    <Footer />
+                    <ChakraProvider>
+                        <ThemeContextProvider>
+                            <ThemeProvider>
+                                <div className="container">
+                                    <div className="wrapper">
+                                        <Navbar />
+                                        {children}
+                                        <Footer />
+                                    </div>
                                 </div>
-                            </div>
-                        </ThemeProvider>
-                    </ThemeContextProvider>
+                            </ThemeProvider>
+                        </ThemeContextProvider>
+                    </ChakraProvider>
                 </AuthProvider>
             </body>
         </html>

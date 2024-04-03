@@ -7,7 +7,8 @@ import { useRouter } from 'next/navigation'
 
 const Login = () => {
 
-    const { data, status } = useSession()
+    const { status } = useSession()
+
 
     const router = useRouter()
 

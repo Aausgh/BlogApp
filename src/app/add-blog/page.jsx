@@ -37,7 +37,7 @@ const AddBlog = () => {
     const [title, setTitle] = useState("")
     const [catSlug, setCatSlug] = useState("");
 
-    const [category, setCategory] = useState({});
+    const [category, setCategory] = useState([]);
 
     const getCategory = async () => {
         try {
@@ -113,7 +113,7 @@ const AddBlog = () => {
                 desc: value,
                 img: media,
                 slug: slugify(title),
-                catSlug: catSlug || "react"
+                catSlug: catSlug
             }),
         });
         if (res.status === 200) {
@@ -134,13 +134,13 @@ const AddBlog = () => {
 
             <select className={styles.select} onChange={(e) => setCatSlug(e.target.value)}>
                 {category.map((c) =>
-                    <option key={c.id} value={c.slug}>{c.title}</option>
+                    <option key={c.id} value={c.slug}>{c.slug}</option>
                 )}
             </select>
 
             <div className={styles.editor}>
                 <button className={styles.button} onClick={() => setOpen(!open)}>
-                    <Image src='./plus.svg' alt='' width={20} height={20} />
+                    <Image src='./plus.svg' alt='' width={20} height={20} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                 </button>
 
                 {open && (
@@ -154,17 +154,17 @@ const AddBlog = () => {
 
                         <button className={styles.addButton}>
                             <label htmlFor='image'>
-                                <Image src='./image.svg' alt='' width={20} height={20} />
+                                <Image src='./image.svg' alt='' width={20} height={20} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                             </label>
                         </button>
 
 
                         <button className={styles.addButton}>
-                            <Image src='./external.svg' alt='' width={20} height={20} />
+                            <Image src='./external.svg' alt='' width={20} height={20} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </button>
 
                         <button className={styles.addButton}>
-                            <Image src='./video.svg' alt='' width={20} height={20} />
+                            <Image src='./video.svg' alt='' width={20} height={20} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
                         </button>
                     </div>
                 )}

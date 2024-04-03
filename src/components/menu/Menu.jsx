@@ -1,6 +1,21 @@
 import styles from './menu.module.css'
 import MenuPost from '../menuPost/MenuPost'
 
+const getData = async (cat) => {
+    const res = await fetch(
+        `http://localhost:3000/api/posts?cat=${cat || ""}`,
+        {
+            cache: "no-store",
+        }
+    );
+
+    if (!res.ok) {
+        throw new Error("Failed");
+    }
+
+    return res.json();
+};
+
 const Menu = () => {
     return (
         <div className={styles.container}>

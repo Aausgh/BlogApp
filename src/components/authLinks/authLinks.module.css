@@ -21,6 +21,29 @@
   font-size: 36px;
 }
 
+.userImageContainer {
+  width: 30px;
+  height: 30px;
+  position: relative;
+}
+
+.avatar {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.userName {
+  color: black;
+}
+
+.addBlog {
+  color: black;
+}
+
+.logout {
+  color: crimson;
+}
+
 .button {
   padding: 5px 10px;
   border-radius: 10px;

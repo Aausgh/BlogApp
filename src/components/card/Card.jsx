@@ -22,23 +22,23 @@ const Card = ({ item }) => {
                         {item.createdAt.substring(0, 10)}
                     </span>
 
-                    <span className={styles.category}>
+                    <span className={`${styles.category} ${styles[item.catSlug]}`}>
                         {item.catSlug}
                     </span>
                 </div>
 
                 <Link href={`/posts/${item.slug}`}>
-                    <h1>
+                    <h1 className={styles.title}>
                         {item.title}
                     </h1>
                 </Link>
 
                 <div
                     className={styles.desc}
-                    dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 60) }}
+                    dangerouslySetInnerHTML={{ __html: item?.desc.substring(0, 110) + "...." }}
                 />
 
-                <Link href={`/posts/${item.slug}`} className={styles.link}>Read More...</Link>
+                <Link href={`/posts/${item.slug}`} className={styles.link}>Read More</Link>
             </div>
         </div>
     )

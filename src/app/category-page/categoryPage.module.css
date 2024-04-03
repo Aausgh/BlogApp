@@ -1,10 +1,11 @@
 .title {
   /* background-color: coral; */
-  color: white;
+  color: var(--textColor);
   padding: 15px 20px;
   text-align: center;
   text-transform: capitalize;
   border-radius: 10px;
+  font-size: 25px;
 }
 
 .content {
@@ -12,26 +13,22 @@
   gap: 50px;
 }
 
-.reactjs {
+.mobiles {
   background-color: #5e63f020;
 }
 
-.nextjs {
+.laptop {
   background-color: #00000060;
 }
 
-.javascript {
+.smartwatch {
   background-color: #ffe10020;
 }
 
-.nodejs {
+.others {
   background-color: #83cd2920;
 }
 
-.typescript {
-  background-color: #02b7ff20;
-}
-
-.css {
+.earphone {
   background-color: #02b7ff20;
 }
