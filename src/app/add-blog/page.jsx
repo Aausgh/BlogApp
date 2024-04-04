@@ -14,21 +14,7 @@ import { app } from '@/utils/firebase';
 
 const storage = getStorage(app);
 
-
-const getCat = async () => {
-    const res = await fetch("http://localhost:3000/api/categories", {
-        cache: "no-store"
-    })
-
-    if (!res.ok) {
-        throw new Error("Failed")
-    }
-
-    return res.json()
-}
-
 const AddBlog = () => {
-
 
     const [open, setOpen] = useState(false)
     const [value, setValue] = useState('')
@@ -41,7 +27,7 @@ const AddBlog = () => {
 
     const getCategory = async () => {
         try {
-            const res = await fetch("http://localhost:3000/api/categories");
+            const res = await fetch("/api/categories");
             if (!res.ok) {
                 throw new Error('Failed to fetch categories');
             }
