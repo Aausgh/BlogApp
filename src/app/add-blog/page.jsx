@@ -113,7 +113,7 @@ const AddBlog = () => {
                 desc: value,
                 img: media,
                 slug: slugify(title),
-                catSlug: catSlug
+                catSlug: catSlug || "mobiles"
             }),
         });
         if (res.status === 200) {

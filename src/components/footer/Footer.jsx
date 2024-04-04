@@ -24,7 +24,8 @@ const Footer = async () => {
             <div className={styles.info}>
 
                 <div className={styles.logo}>
-                    <h1 className={styles.logoText}>Blogify</h1>
+                    <Image src="/logo.png" alt="" width={50} height={50} />
+                    <h1 className={styles.logoText}>GadgetGlobe</h1>
                 </div>
 
                 <p className={styles.desc}>

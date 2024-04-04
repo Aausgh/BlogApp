@@ -50,7 +50,7 @@ const Menu = () => {
 
             <div className={styles.items}>
                 {popularPosts.map((post) => (
-                    <MenuPost key={post.id} withImage={false} post={post} />
+                    <MenuPost key={post.id} post={post} />
                 ))}
             </div>
 
@@ -59,7 +59,7 @@ const Menu = () => {
 
             <div className={styles.items}>
                 {editorPicks.map((post) => (
-                    <MenuPost key={post.id} withImage={true} post={post} />
+                    <MenuPost key={post.id} post={post} />
                 ))}
             </div>
         </div>

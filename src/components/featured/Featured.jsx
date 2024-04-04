@@ -22,33 +22,36 @@ const Featured = async () => {
 
     const data = await getData();
 
-    return (
+    const featuredPosts = data?.posts?.filter(post => post.isFeatured === true);
 
+    return (
         <div className={styles.container}>
             <h1 className={styles.title}>Explore the World of Gadgets with <b>GadgetGlobe</b> - Where Innovation Shines Bright!</h1>
 
-            {data?.posts?.[0]?.isFeatured === true && <div className={styles.post}>
-                <div className={styles.imgContainer}>
-                    <Image
-                        src={data?.posts[0]?.img}
-                        alt='featured image'
-                        fill
-                        className={styles.image}
-                        sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                    />
+            {featuredPosts && (
+                <div className={styles.post}>
+                    <div className={styles.imgContainer}>
+                        <Image
+                            src={featuredPosts[0]?.img}
+                            alt='featured image'
+                            fill
+                            className={styles.image}
+                            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                        />
+                    </div>
+
+                    <div className={styles.textContainer}>
+                        <h1 className={styles.postTitle}>{featuredPosts[0]?.title}</h1>
+
+                        <div
+                            className={styles.postDesc}
+                            dangerouslySetInnerHTML={{ __html: featuredPosts[0]?.desc.substring(0, 150) + "...." }}
+                        />
+
+                        <Link href={`/posts/${featuredPosts[0]?.slug}`} className={styles.link}>Read More</Link>
+                    </div>
                 </div>
-
-                <div className={styles.textContainer}>
-                    <h1 className={styles.postTitle}>{data?.posts[0]?.title}</h1>
-
-                    <div
-                        className={styles.postDesc}
-                        dangerouslySetInnerHTML={{ __html: data?.posts[0]?.desc.substring(0, 110) + "...." }}
-                    />
-
-                    <Link href={`/posts/${data.posts[0].slug}`} className={styles.link}>Read More</Link>
-                </div>
-            </div>}
+            )}
         </div>
     )
 }
