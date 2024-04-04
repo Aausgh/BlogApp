@@ -78,6 +78,8 @@ model Post {
   userEmail String
   user      User      @relation(fields: [userEmail], references: [email])
   comments  Comment[]
+  isFeatured Boolean @default(false)
+  editorsPick Boolean @default(false)
 }
 
 model Comment {

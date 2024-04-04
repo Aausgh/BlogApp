@@ -3,7 +3,22 @@ import styles from "./footer.module.css";
 import Image from "next/image";
 import Link from "next/link";
 
-const Footer = () => {
+const getCat = async () => {
+    const res = await fetch("http://localhost:3000/api/categories", {
+        cache: "no-store"
+    })
+
+    if (!res.ok) {
+        throw new Error("Failed")
+    }
+
+    return res.json()
+}
+
+const Footer = async () => {
+
+    const data = await getCat()
+
     return (
         <div className={styles.container}>
             <div className={styles.info}>
@@ -38,10 +53,15 @@ const Footer = () => {
 
                 <div className={styles.list}>
                     <span className={styles.listTitle}>Tags</span>
-                    <Link href="/">Style</Link>
-                    <Link href="/">Fashion</Link>
-                    <Link href="/">Coding</Link>
-                    <Link href="/">Travel</Link>
+                    {data.slice(0, 4).map((cat) => (
+                        <Link
+                            href={`/category-page?cat=${cat.slug}`}
+                            key={cat.id}
+                        >
+                            {cat.title}
+                        </Link>
+                    ))}
+
                 </div>
 
                 <div className={styles.list}>

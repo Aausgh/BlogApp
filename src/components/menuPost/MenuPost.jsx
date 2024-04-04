@@ -2,13 +2,13 @@ import styles from './menuPost.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const MenuPost = ({ withImage }) => {
+const MenuPost = ({ withImage, post }) => {
     return (
         <Link href={'/'} className={styles.item}>
             {withImage && (
                 <div className={styles.imageContainer}>
                     <Image
-                        src='/react.svg'
+                        src={post.img}
                         alt=''
                         fill
                         className={styles.image}
@@ -17,12 +17,12 @@ const MenuPost = ({ withImage }) => {
             )}
 
             <div className={styles.textContainer}>
-                <span className={`${styles.category} ${styles.reactjs}`}>
-                    React JS
+                <span className={`${styles.category} ${styles[post.catSlug]}`}>
+                    {post.catSlug}
                 </span>
 
                 <h3 className={styles.postTitle}>
-                    Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    {post.title}
                 </h3>
 
                 <div className={styles.detail}>

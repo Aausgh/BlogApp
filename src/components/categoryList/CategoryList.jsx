@@ -2,38 +2,6 @@ import styles from './categoryList.module.css'
 import Link from 'next/link'
 import Image from 'next/image'
 
-const categories = [
-    {
-        name: 'React JS',
-        image: '/react.svg',
-        link: 'reactjs'
-    },
-    {
-        name: 'Next JS',
-        image: '/nextjs.svg',
-        link: 'nextjs'
-    },
-    {
-        name: 'Node JS',
-        image: '/nodejs.svg',
-        link: 'nodejs'
-    },
-    {
-        name: 'Javascript',
-        image: '/javascript.svg',
-        link: 'javascript'
-    },
-    {
-        name: 'Node JS',
-        image: '/nodejs.svg',
-        link: 'nodejs'
-    },
-    {
-        name: 'Javascript',
-        image: '/javascript.svg',
-        link: 'javascript'
-    },
-]
 
 const getCat = async () => {
     const res = await fetch("http://localhost:3000/api/categories", {

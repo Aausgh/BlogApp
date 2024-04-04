@@ -29,29 +29,26 @@
   font-size: 12px;
   color: white;
   width: max-content;
+  text-transform: capitalize;
 }
 
-.category.reactjs {
+.category.mobiles {
   background-color: #5e63f020;
 }
 
-.category.nextjs {
+.category.laptop {
   background-color: #00000060;
 }
 
-.category.javascript {
+.category.smartwatch {
   background-color: #ffe10020;
 }
 
-.category.nodejs {
+.category.others {
   background-color: #83cd2920;
 }
 
-.category.typescript {
-  background-color: #02b7ff20;
-}
-
-.category.css {
+.category.earphone {
   background-color: #02b7ff20;
 }
 

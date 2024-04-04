@@ -36,7 +36,7 @@ const AuthLinks = () => {
                         Logout
                     </span> */}
 
-                    <Menu >
+                    <Menu isLazy>
                         <MenuButton >
                             {data?.user?.image && (
                                 <div className={styles.userImageContainer}>
@@ -50,12 +50,13 @@ const AuthLinks = () => {
                                 </div>
                             )}
                         </MenuButton>
-                        <MenuList >
+                        <MenuList width="10px" color={"black"}>
                             <MenuGroup as="h1" title={data?.user?.name} className={styles.userName}>
 
                                 <MenuItem
                                     as={Link}
                                     href='/add-blog'
+                                    color="black"
                                     className={styles.addBlog}
                                 >
 
@@ -63,7 +64,7 @@ const AuthLinks = () => {
                                 </MenuItem>
                                 <MenuItem
                                     onClick={signOut}
-                                    className={styles.logout}
+                                    color="red"
                                 >
                                     Logout
                                 </MenuItem>
