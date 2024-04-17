@@ -1,5 +1,6 @@
 import prisma from "@/utils/connect";
 import { NextResponse } from "next/server";
+import { getAuthSession } from "@/utils/auth";
 
 // GET SINGLE POST
 export const GET = async (req, { params }) => {
@@ -18,5 +19,30 @@ export const GET = async (req, { params }) => {
         return new NextResponse(
             JSON.stringify({ message: "Something went wrong!" }, { status: 500 })
         );
+    }
+};
+
+//DELETE A POST
+export const DELETE = async (req, { params }) => {
+    const { slug } = params;
+
+    const session = await getAuthSession(req);
+
+    if (!session) {
+        return new NextResponse(
+            JSON.stringify({ message: "Not Authenticated!" }, { status: 401 })
+        );
+    }
+
+    try {
+
+        const post = await prisma.post.delete({
+            where: { slug }
+        });
+
+        return new NextResponse(JSON.stringify(post, { status: 200 }));
+    } catch (err) {
+        console.error(err);
+        return new NextResponse(JSON.stringify({ message: "Something went wrong" }), { status: 500 });
     }
 };
