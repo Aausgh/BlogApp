@@ -23,11 +23,16 @@ const Login = () => {
     return (
         <div className={styles.container}>
             <div className={styles.wrapper}>
-                <div className={styles.socialButton} onClick={() => signIn('google')}>
+
+                <div className={styles.login}>
+                    Login
+                </div>
+
+                <div className={`${styles.socialButton} ${styles.google}`} onClick={() => signIn('google')}>
                     <Image src='./google.svg' alt='' width={30} height={30} />
                     Sign in with Google
                 </div>
-                <div className={styles.socialButton}>
+                <div className={`${styles.socialButton} ${styles.github}`}>
                     <Image src='./github.svg' alt='' width={30} height={30} />
                     Sign in with Github
                 </div>

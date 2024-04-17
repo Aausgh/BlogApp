@@ -55,12 +55,12 @@ const AuthLinks = () => {
 
                                 <MenuItem
                                     as={Link}
-                                    href='/add-blog'
+                                    href='/dashboard'
                                     color="black"
                                     className={styles.addBlog}
                                 >
 
-                                    Add Blog
+                                    Dashboard
                                 </MenuItem>
                                 <MenuItem
                                     onClick={signOut}

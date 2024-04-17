@@ -80,7 +80,7 @@ const AddBlog = () => {
         return <div className={styles.loading}>Loading...</div>
     }
     if (status === "unauthenticated") {
-        router.push('/')
+        router.push('/login')
     }
 
     const slugify = (str) =>

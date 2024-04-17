@@ -14,11 +14,16 @@
   border-radius: 10px;
 }
 
+.login {
+  font-size: x-large;
+  font-weight: bold;
+  text-align: center;
+}
+
 .socialButton {
   padding: 10px 20px;
   border-radius: 5px;
   border: none;
-  color: white;
   font-weight: bold;
   cursor: pointer;
   display: flex;
@@ -27,12 +32,12 @@
   gap: 10px;
 }
 
-.socialButton:first-child {
+.google {
   background-color: #ffffff;
   color: black;
 }
 
-.socialButton:nth-child(2) {
+.github {
   background-color: #111;
 }
 
