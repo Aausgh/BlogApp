@@ -13,28 +13,12 @@ import Loader from '@/components/loader/Loader';
 
 
 
-const getData = async (slug) => {
-    const res = await fetch(
-        `${process.env.NEXTAUTH_URL}/api/posts/${slug}`,
-        {
-            cache: "no-store",
-        }
-    );
-
-    if (!res.ok) {
-        throw new Error("Failed");
-    }
-
-    return res.json();
-};
-
 const storage = getStorage(app);
 
 const UpdateBlog = () => {
     const { slug } = useParams();
 
 
-    const [open, setOpen] = useState(false)
     const [value, setValue] = useState('')
     const [file, setFile] = useState(null)
     const [media, setMedia] = useState("")
@@ -193,22 +177,6 @@ const UpdateBlog = () => {
                     <div className={styles.editor}>
 
                         <div className={styles.imgContainer}>
-
-                            {/* <div className={styles.add}>
-                                <input
-                                    type="file"
-                                    id='image'
-                                    // value={file}
-                                    onChange={(e) => setFile(e.target.files[0])}
-                                    style={{ display: 'none' }}
-                                />
-
-                                <button className={styles.addButton}>
-                                    <label htmlFor='image'>
-                                        <Image src={plus} alt='' width={20} height={20} sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw" />
-                                    </label>
-                                </button>
-                            </div> */}
 
                             <input type="file" onChange={(e) => setFile(e.target.files[0])} />
 
