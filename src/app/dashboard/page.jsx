@@ -12,12 +12,11 @@ import {
     Tr,
     Th,
     Td,
-    TableContainer,
 } from '@chakra-ui/react';
 import { FaEdit, FaPlus } from "react-icons/fa";
 import { MdDelete } from "react-icons/md";
 import Link from 'next/link';
-import { getAuthSession } from '@/utils/auth';
+import Loader from '@/components/loader/Loader';
 
 const getData = async () => {
     const res = await fetch(
@@ -37,9 +36,11 @@ const getData = async () => {
 const Dashboard = () => {
     const { data } = useSession();
     const [posts, setPosts] = useState([]);
+    const [isLoading, setIsLoading] = useState(false);
 
     useEffect(() => {
         const fetchPosts = async () => {
+            setIsLoading(true)
             try {
                 const { posts } = await getData();
                 const userPosts = posts.filter(post => post.userEmail === data?.user?.email);
@@ -47,6 +48,7 @@ const Dashboard = () => {
             } catch (error) {
                 console.error("Failed to fetch posts:", error);
             }
+            setIsLoading(false);
         };
 
         fetchPosts();
@@ -55,8 +57,6 @@ const Dashboard = () => {
 
     const deletePost = async (slug) => {
         try {
-
-
             const response = await fetch(`/api/posts/${slug}`, {
                 method: 'DELETE',
             });
@@ -73,6 +73,7 @@ const Dashboard = () => {
 
 
     return (
+
         <div className={styles.container}>
 
             <div className={styles.subContainer}>
@@ -86,39 +87,47 @@ const Dashboard = () => {
                 </Link>
             </div>
 
-            <TableContainer className={styles.table}>
+            {isLoading ? (
+                <div className={styles.loading}>
+                    <Loader />
+                </div>
+            ) : (
                 <Table>
                     <Thead>
-                        <Tr>
-                            <Th>Title</Th>
-                            <Th>Category</Th>
-                            <Th>Views</Th>
-                            <Th>Actions</Th>
+                        <Tr >
+                            <Th textAlign={"center"} fontSize={"20px"} >Title</Th>
+                            <Th fontSize={"20px"} >Category</Th>
+                            <Th fontSize={"20px"} >Views</Th>
+                            <Th fontSize={"20px"} >Actions</Th>
                         </Tr>
                     </Thead>
 
                     <Tbody>
                         {posts.map((p) => (
-                            <Tr key={p.id}>
+                            <Tr key={p.id} className={styles.tbodyTr}>
                                 <Td className={styles.tdTitle}>
                                     <Image
                                         src={p.img}
                                         alt="post image"
-                                        width={100}
-                                        height={200}
+                                        width={120}
+                                        height={250}
                                         className={styles.tdImg}
                                         priority
                                     />
-                                    {p.title}
+                                    <Link href={`/posts/${p.slug}`} className={styles.tdLink}>
+                                        {p.title}
+                                    </Link>
                                 </Td>
 
                                 <Td className={styles.tdCat}>{p.catSlug}</Td>
 
-                                <Td>{p.views}</Td>
+                                <Td className={styles.tdViews}>{p.views}</Td>
 
-                                <Td>
+                                <Td className={styles.tdActions}>
                                     <button className={styles.btnEdit}>
-                                        <FaEdit />
+                                        <Link href={`/update-blog/${p.slug}`}>
+                                            <FaEdit />
+                                        </Link>
                                     </button>
 
                                     <button
@@ -132,8 +141,10 @@ const Dashboard = () => {
                         ))}
                     </Tbody>
                 </Table>
-            </TableContainer>
+            )}
         </div>
+
+
     )
 }
 
